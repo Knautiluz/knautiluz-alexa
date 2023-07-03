@@ -1,0 +1,30 @@
+{
+  "name": "knautiluz-bot-skill",
+  "version": "1.2.0",
+  "description": "alexa integrated with chat gpt tsundere personality",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node /dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@Knautiluz",
+  "license": "MIT",
+  "dependencies": {
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.19.0",
+    "aws-sdk": "^2.326.0",
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1",
+    "ts-node": "^10.9.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.1",
+    "@types/uuid": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.11.0",
+    "typescript": "^5.0.4"
+  }
+}

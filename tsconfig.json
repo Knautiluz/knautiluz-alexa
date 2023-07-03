@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+      "sourceMap": false,
+      "moduleResolution": "node",
+      "module": "CommonJS",
+      "target": "ES6",
+      "noFallthroughCasesInSwitch": true,
+      "declaration": true,
+      "outDir": "lambda",
+      "strict": true,
+      "noImplicitAny": false,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "resolveJsonModule": true
+    },
+    "include": ["./package.json", "./index.ts", "./services/gpt-bot.ts"],
+    "exclude": [
+      "./node_modules/**/*",
+      "./lambda/**/*"
+    ]
+}  
