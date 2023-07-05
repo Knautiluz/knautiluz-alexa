@@ -9,8 +9,9 @@ const pauseIntentHandler: RequestHandler = {
     },
     handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
-            .speak('Volte quando quiser terminar de ouvir!')
+            .speak('Quando quiser terminar de ouvir diga: Alexa, continue!')
             .addAudioPlayerStopDirective()
+            .withShouldEndSession(false)
             .getResponse()
     },
 }

@@ -11,7 +11,7 @@ const cancelIntentHandler: RequestHandler = {
     handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
             .speak('Até logo, quando quiser voltar diga: iniciar Knautiluz')
-            .withShouldEndSession(true)
+            .withShouldEndSession(false)
             .getResponse()
     },
 }

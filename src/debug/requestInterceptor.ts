@@ -1,9 +1,12 @@
 import type { HandlerInput, RequestInterceptor } from 'ask-sdk-core'
+import { Logger } from '../logger/logger'
+
+const logger = new Logger()
 
 const requestInterceptor: RequestInterceptor = {
     process(handlerInput: HandlerInput) {
-        console.log('==== REQUEST ======')
-        console.log(JSON.stringify(handlerInput.requestEnvelope, null, 2))
+        logger.info('==== REQUEST ======')
+        logger.info(JSON.stringify(handlerInput.requestEnvelope, null, 2))
     },
 }
 

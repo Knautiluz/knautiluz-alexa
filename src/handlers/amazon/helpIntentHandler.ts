@@ -10,6 +10,7 @@ const helpIntentHandler: RequestHandler = {
     handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
             .speak('Pergunte sobre as notícias do dia, notícias sobre ciência e muito mais!')
+            .withShouldEndSession(false)
             .getResponse()
     },
 }

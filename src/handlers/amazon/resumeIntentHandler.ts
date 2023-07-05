@@ -1,5 +1,6 @@
 import type { RequestHandler, HandlerInput } from 'ask-sdk-core'
 import type { Response } from 'ask-sdk-model'
+import type { PlaybackSettings } from '../../types/types'
 
 const resumeIntentHandler: RequestHandler = {
     canHandle(handlerInput: HandlerInput): boolean {
@@ -7,10 +8,13 @@ const resumeIntentHandler: RequestHandler = {
         return request.type === 'IntentRequest'
             && request.intent.name === 'AMAZON.ResumeIntent'
     },
-    handle(handlerInput: HandlerInput): Response {
+    async handle(handlerInput: HandlerInput): Promise<Response> {
+        const attrs: PlaybackSettings = await handlerInput.attributesManager.getPersistentAttributes() as PlaybackSettings
+        const offset = handlerInput.requestEnvelope.context.AudioPlayer?.offsetInMilliseconds || 0
         return handlerInput.responseBuilder
-            .speak('Continuando...')
-            .addAudioPlayerClearQueueDirective('CLEAR_ALL')
+            .speak('Retomando de onde você parou...')
+            .addAudioPlayerPlayDirective('REPLACE_ALL', attrs.audioUrl, attrs.audioToken, offset, undefined)
+            .withShouldEndSession(false)
             .getResponse()
     },
 }

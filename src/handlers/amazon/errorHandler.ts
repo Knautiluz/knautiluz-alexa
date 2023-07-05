@@ -1,5 +1,8 @@
 import type { HandlerInput, ErrorHandler } from 'ask-sdk-core'
 import type { Response } from 'ask-sdk-model'
+import { Logger } from '../../logger/logger'
+
+const logger = new Logger()
 
 const errorHandler: ErrorHandler = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -7,7 +10,7 @@ const errorHandler: ErrorHandler = {
         return true
     },
     handle(handlerInput: HandlerInput, error: Error): Response {
-        console.error(error)
+        logger.error(error.message)
         return handlerInput.responseBuilder
             .speak('Opa, parece que não consegui fazer isso!')
             .getResponse()

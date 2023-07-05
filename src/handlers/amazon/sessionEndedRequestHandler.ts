@@ -9,6 +9,7 @@ const sessionEndedRequestHandler: RequestHandler = {
     handle(handlerInput: HandlerInput): Response {
         return handlerInput.responseBuilder
             .speak('Até logo!')
+            .withShouldEndSession(true)
             .getResponse()
     },
 }
